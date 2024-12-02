@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+Example ajax 
+part a
+-->
+<html>
+    <body>
+        <div id="content">
+            <h2>Send an asyncronous request by pusing a button:</h2>
+            <button type ="button" onclick="load()">Send Request</button>
+        </div>
+
+        <script>
+            
+            function load() {
+                const xhttp = new XMLHttpRequest(); // create object
+                xhttp.onload =
+                    function() { //un named function on-the-fly 1 time used
+                        document.getElementById("content").innerHTML = this.getAllResponseHeaders();
+                    }
+                xhttp.open("GET","https://rainekk.github.io/datetime/info.txt");
+                xhttp.send();
+            }
+            
+            /**
+            function load() {
+                fetch("https://rainekk.github.io/datetime/info.txt")
+                .then(response => response.text())
+                .then(text => document.getElementById("content").innerHTML = text);
+            }
+            **/
+            async function getText(file) {
+                let myObject = await fetch(file);
+                let myText = await myObject.text();
+                document.getElementById("content").innerHTML = myText;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!--
+Example AsyncrynousJava Script
+-->
+<!DOCTYPE html>
+
+<html>
+    <body onload= "init()">
+        <div id = "content1"></div>
+        <div id = "content2"></div>
+    <script>
+        function init() {
+
+            setTimeout(updateContent, 3000);
+            document.getElementById("content1").innerHTML =  //get id
+            "<p>Original content 1.</p>";
+
+            document.getElementById("content2").innerHTML =  //get id
+            "<p>Original content 2.</p>";
+        }
+
+        function updateContent() {
+            document.getElementById("content1").innerHTML =  //get id
+            "<p>Updated content.</p>";
+        }
+    </script>
+    </body>
+</html>

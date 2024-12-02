@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Example Asyncronous JS 
+part b
+-->
+<html>
+    <body>
+        <div id="counter">
+            <p>60</p>
+        </div>
+        <label for="code">Stop code:</label>
+        <input oninput="checkCode()" type="text" id ="code" value=""> <!--oninput event listener-->
+        <script>
+            let remaining = 60; //no define varible type
+            let timer = setTimeout(updateCounter,1000);
+            // also try setInterval
+            const code = 1234;
+
+            function updateCounter() {
+                if (remaining > 0) {
+                    remaining = remaining - 1;
+                    document.getElementById("counter").innerHTML 
+                    ="<p>"+remaining+"</p>";
+
+                    timer = setTimeout(updateCounter,1000)
+                }
+            }
+
+            function checkCode() {
+                let givenCode = document.getElementById("code").value;
+                if (givenCode == 1234) {
+                    clearTimeout(timer);
+                }
+            }
+        </script>
+    </body>
+</html>

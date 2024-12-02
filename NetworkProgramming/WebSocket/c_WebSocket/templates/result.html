@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+   <head><title>Measurements</title></head>
+   <body onload="init();">
+     <div id="latest"><p>No data.</p></div>
+
+     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.min.js"></script>
+     <script>
+         function init() {
+            let socket = io();
+            socket.on('my_response', function(data) {
+               let s = JSON.parse(data.result);
+               let meas = "<p>" + s.id + ", " + s.pressure + ", " +
+                            s.temperature + ", " + s.humidity + "</p>"; 
+               document.getElementById("latest").innerHTML = meas;
+            });
+         }
+     </script>
+   </body>
+</html>
